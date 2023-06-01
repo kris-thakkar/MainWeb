@@ -16,6 +16,17 @@ class UtilC {
     return (x + "").replace(/^\s+|\s+$/gm, "");
   }
 
+  optionsMaker(data, valueIdentifier, labelIdentifier, pre = [], post = []) {
+    return [
+      ...pre,
+      ...data.map((d) => ({
+        value: d[valueIdentifier],
+        label: d[labelIdentifier],
+      })),
+      ...post,
+    ];
+  }
+
   validateInput(value, validationType) {
     if (validationType === undefined) {
       validationType = "STRING";
