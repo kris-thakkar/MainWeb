@@ -1,17 +1,27 @@
 import Link from "next/link";
 import React from "react";
+import Util from "../util/utility";
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.categories = [
-      { name: "Plumber", link: "plumber", image: "plumber.png" },
-      { name: "Electrician", link: "electrician", image: "electrician.png" },
-      { name: "Carpenter", link: "carpenter", image: "carpenter.png" },
-      { name: "Painter", link: "painter", image: "painter.png" },
-      { name: "AC", link: "ac", image: "ac.png" },
-      { name: "Refrigerator", link: "refrigerator", image: "refrigerator.png" },
+      "AC Repair",
+      "Carpenter",
+      "Electrician",
+      "Plumber",
+      "Painter",
+      "Salon at Home",
+      "Maid",
+      "Pest Control",
+      "Appliance Repair",
+      "Cleaning and Disinfection",
+      "Home Deep Cleaning",
+      "Sofa Cleaning",
+      "Bathroom Cleaning",
+      "Kitchen Cleaning",
+      "Car Cleaning",
     ];
   }
 
@@ -21,9 +31,9 @@ export default class Home extends React.Component {
         <h1>What are you looking for ?</h1>
         {this.categories.map((category, index) => (
           <div key={index}>
-            <Link href={`/category/${category.link}`}>
+            <Link href={`/category/${Util.slugify(category)}`}>
               <a>
-                <h4>{category.name}</h4>
+                <h4>{category}</h4>
               </a>
             </Link>
           </div>

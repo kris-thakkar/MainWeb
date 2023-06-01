@@ -16,6 +16,21 @@ class UtilC {
     return (x + "").replace(/^\s+|\s+$/gm, "");
   }
 
+  slugify(str) {
+    str = str.replace(/&/g, "and");
+    var strs = [];
+    var temp = str.split("/");
+    for (var str2 of temp) {
+      strs.push(
+        str2
+          .toLowerCase()
+          .replace(/ /g, "-")
+          .replace(/[^\w-]+/g, "")
+      );
+    }
+    return strs.join("/");
+  }
+
   optionsMaker(data, valueIdentifier, labelIdentifier, pre = [], post = []) {
     return [
       ...pre,
